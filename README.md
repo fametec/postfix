@@ -30,7 +30,7 @@ Postfix SMTP Relay
         environment:
          RELAY_USER: postmaster@XXXXXXXXXXXXXXXX
          RELAY_PASS: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-         RELAY_RELAYHOST: smtp.mailgun.org
+         RELAY_HOST: smtp.mailgun.org
 
  # testing
 
