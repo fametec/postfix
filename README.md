@@ -21,16 +21,24 @@ Postfix SMTP Relay
     # MAILGUN
     #
       relay:
-        build: .
-        image: fametec/postfix-mailgun:latest
+        image: fametec/postfix:latest
         restart: unless-stopped
-        container_name: relay
+        volume: 
+         - postfix-volume:/var/spool/postfix
         ports:
          - "30025:25"
         environment:
          RELAY_USER: postmaster@XXXXXXXXXXXXXXXX
          RELAY_PASS: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
          RELAY_HOST: smtp.mailgun.org
+         
+    #
+    ### Volumes
+    #
+    volumes:
+      postfix-volume:
+      
+      
 
  # testing
 
