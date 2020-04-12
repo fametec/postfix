@@ -47,6 +47,8 @@ RUN { \
     } > /entrypoint.sh && chmod +x /entrypoint.sh
 
 
+VOLUME /var/spool/postfix
+
 EXPOSE 25
 
 CMD [ "/entrypoint.sh" ]
