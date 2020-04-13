@@ -7,8 +7,7 @@ Postfix SMTP Relay
     docker run --rm -d --name postfix \
     -e RELAY_USER=postmaster@domain \
     -e RELAY_PASS=xxxxxxxxx \
-    -e RELAY_HOST=smtp.mailgun.org \
-    fametec/postfix:latest
+    fametec/postfix:gmail
 
 ## docker-compose
 
@@ -21,7 +20,7 @@ Postfix SMTP Relay
     # MAILGUN
     #
       relay:
-        image: fametec/postfix:latest
+        image: fametec/postfix:gmail
         restart: unless-stopped
         volume: 
          - postfix-volume:/var/spool/postfix
@@ -30,8 +29,6 @@ Postfix SMTP Relay
         environment:
          RELAY_USER: postmaster@XXXXXXXXXXXXXXXX
          RELAY_PASS: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-         RELAY_HOST: smtp.mailgun.org
-         
     #
     ### Volumes
     #
