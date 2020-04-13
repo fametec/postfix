@@ -7,7 +7,7 @@ services:
     # MAILGUN
     #
       relay:
-        image: fametec/postfix:latest
+        image: fametec/postfix:mailgun
         restart: unless-stopped
         volumes:
          - postfix-volume:/var/spool/postfix
@@ -16,7 +16,6 @@ services:
         environment:
          RELAY_USER: <put-username-here>
          RELAY_PASS: <put-password-here>
-         RELAY_HOST: smtp.gmail.com
     #
     ### Volumes
     #
