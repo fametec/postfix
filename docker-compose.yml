@@ -1,0 +1,24 @@
+version: '3.2'
+    #
+    ### Services
+    #
+services:
+    #
+    # MAILGUN
+    #
+      relay:
+        image: fametec/postfix:latest
+        restart: unless-stopped
+        volumes:
+         - postfix-volume:/var/spool/postfix
+        ports:
+         - "30025:25"
+        environment:
+         RELAY_USER: <put-username-here>
+         RELAY_PASS: <put-password-here>
+         RELAY_HOST: smtp.gmail.com
+    #
+    ### Volumes
+    #
+volumes:
+      postfix-volume:

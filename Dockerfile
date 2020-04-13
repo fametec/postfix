@@ -1,4 +1,4 @@
-FROM centos:7
+FROM alpine:3.11.5
 
 MAINTAINER eduardo@fametec.com.br
 
@@ -8,10 +8,14 @@ ENV RELAY_PASS xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ENV RELAY_HOST smtp.mailgun.org
 
-RUN yum -y install postfix cyrus-sasl-plain mailx
+RUN apk update \
+	&& apk upgrade \
+	&& apk add --no-cache ca-certificates \
+	&& apk add --no-cache postfix cyrus-sasl-plain mailx
 
 RUN { \
       	echo ; \
+	echo 'maillog_file = /dev/stdout' ; \
       	echo 'inet_interfaces = all' ; \
       	echo '#Set the relayhost' ; \
       	echo 'mydestination = localhost.localdomain, localhost' ; \
@@ -21,7 +25,7 @@ RUN { \
       	echo 'smtp_sasl_security_options = noanonymous' ; \
       	echo ; \
       	echo '# TLS support' ; \
-      	echo 'smtp_tls_CAfile = /etc/pki/tls/certs/ca-bundle.crt' ; \
+      	echo 'smtp_tls_CAfile = /etc/ssl/certs/ca-certificates.crt' ; \
       	echo 'smtp_tls_security_level = may' ; \
       	echo 'smtpd_tls_security_level = may' ; \
       	echo 'smtp_tls_note_starttls_offer = yes' ; \
@@ -32,20 +36,14 @@ RUN { \
 
 
 RUN { \
-        echo '#!/bin/bash' ; \
+        echo '#!/bin/sh' ; \
         echo ; \
         echo 'sed -i s/RELAY_USER/$RELAY_USER/g /etc/postfix/main.cf' ; \
         echo 'sed -i s/RELAY_PASS/$RELAY_PASS/g /etc/postfix/main.cf' ; \
         echo 'sed -i s/RELAY_HOST/$RELAY_HOST/g /etc/postfix/main.cf' ; \
-	      echo 'postfix start' ; \
+        echo 'postfix start-fg' ; \
         echo ; \
-        echo 'while true; do' ;\
-        echo '  mailq ' ; \
-        echo '  sleep 10' ; \
-        echo 'done' ; \
-        echo ; \
-    } > /entrypoint.sh && chmod +x /entrypoint.sh
-
+   } > /entrypoint.sh && chmod +x /entrypoint.sh
 
 VOLUME /var/spool/postfix
 
