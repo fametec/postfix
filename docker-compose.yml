@@ -1,13 +1,13 @@
 version: '3.2'
-    #
-    ### Services
-    #
+#
+### Services
+#
 services:
-    #
-    # MAILGUN
-    #
+#
+# GMAIL
+#
       relay:
-        image: fametec/postfix:latest
+        image: fametec/postfix:gmail
         restart: unless-stopped
         volumes:
          - postfix-volume:/var/spool/postfix
@@ -16,9 +16,8 @@ services:
         environment:
          RELAY_USER: <put-username-here>
          RELAY_PASS: <put-password-here>
-         RELAY_HOST: smtp.gmail.com
-    #
-    ### Volumes
-    #
+#
+### Volumes
+#
 volumes:
       postfix-volume:
