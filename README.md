@@ -8,7 +8,7 @@ Postfix SMTP Relay
     -e RELAY_USER=postmaster@domain \
     -e RELAY_PASS=xxxxxxxxx \
     -e RELAY_HOST=smtp.mailgun.org \
-    fametec/postfix:latest
+    fametec/postfix:sendgrid
 
 ## docker-compose
 
@@ -18,19 +18,19 @@ Postfix SMTP Relay
     #
     services:
     #
-    # MAILGUN
+    # SENDGRID
     #
       relay:
-        image: fametec/postfix:latest
+        image: fametec/postfix:sendgrid
         restart: unless-stopped
         volume: 
          - postfix-volume:/var/spool/postfix
         ports:
          - "30025:25"
         environment:
-         RELAY_USER: postmaster@XXXXXXXXXXXXXXXX
+         RELAY_USER: apikey
          RELAY_PASS: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-         RELAY_HOST: smtp.mailgun.org
+         
          
     #
     ### Volumes
