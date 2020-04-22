@@ -6,7 +6,9 @@ ENV RELAY_USER postmaster@xxxxxxxxxxxxxxxxxxx
 
 ENV RELAY_PASS xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
-ENV RELAY_HOST smtp.mailgun.org
+ENV RELAY_HOST email-smtp.us-west-2.amazonaws.com
+
+# See https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region
 
 RUN apk update \
 	&& apk upgrade \
