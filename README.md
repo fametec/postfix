@@ -34,4 +34,12 @@ Postfix SMTP Relay
 
     echo "Email Test" | mail -s "This is a simple test" contato@fametec.com.br
  
- 
+or
+
+    sendmail -f sender@example.com recipient@example.com
+    From: Sender Name <sender@example.com>
+    Subject: Amazon SES Test                
+    This message was sent using Amazon SES.                
+    .
+
+
