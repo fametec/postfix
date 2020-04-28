@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+    relay:
+        image: fametec/postfix:sendgrid
+        restart: unless-stopped
+        volumes:
+         - postfix-volume:/var/spool/postfix
+        ports:
+         - "30025:25"
+        environment:
+         RELAY_USER: <put-username-here>
+         RELAY_PASS: <put-password-here>
+volumes:
+      postfix-volume:
