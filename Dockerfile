@@ -17,6 +17,8 @@ RUN { \
       	echo ; \
 	echo 'maillog_file = /dev/stdout' ; \
       	echo 'inet_interfaces = all' ; \
+	echo 'smtpd_recipient_restrictions = permit_mynetworks' ; \
+	echo 'mynetworks = 0.0.0.0/0' ; \
       	echo '#Set the relayhost' ; \
       	echo 'mydestination = localhost.localdomain, localhost' ; \
       	echo 'relayhost = [RELAY_HOST]:587' ; \
