@@ -1,4 +1,6 @@
 # postfix
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffametec%2Fpostfix.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffametec%2Fpostfix?ref=badge_shield)
+
 
 Postfix SMTP Relay
 
@@ -53,3 +55,7 @@ or
     .
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffametec%2Fpostfix.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffametec%2Fpostfix?ref=badge_large)
