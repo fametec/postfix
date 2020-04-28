@@ -22,7 +22,7 @@ RUN { \
 	echo 'mynetworks = 0.0.0.0/0' ; \
       	echo '#Set the relayhost' ; \
       	echo 'mydestination = localhost.localdomain, localhost' ; \
-      	echo 'relayhost = [smtp.mailgun.org]:587' ; \
+      	echo 'relayhost = [smtp.eu.mailgun.org]:587' ; \
       	echo 'smtp_sasl_auth_enable = yes' ; \
       	echo 'smtp_sasl_password_maps = static:RELAY_USER:RELAY_PASS' ; \
       	echo 'smtp_sasl_security_options = noanonymous' ; \
