@@ -23,7 +23,7 @@ Postfix SMTP Relay
       relay:
         image: fametec/postfix:latest
         restart: unless-stopped
-        volume: 
+        volumes: 
          - postfix-volume:/var/spool/postfix
         ports:
          - "30025:25"
