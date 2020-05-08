@@ -8,7 +8,9 @@ ENV RELAY_PASS xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ENV RELAY_HOST email-smtp.us-west-2.amazonaws.com
 
-# See https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region
+# See 
+# https://docs.aws.amazon.com/general/latest/gr/rande.html#ses_region
+# https://docs.aws.amazon.com/general/latest/gr/ses.html
 
 RUN apk update \
 	&& apk upgrade \
