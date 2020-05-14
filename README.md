@@ -10,7 +10,7 @@
  - [x] fametec/postfix:gmail
  - [x] fametec/postfix:office365
  - [x] fametec/postfix:sendgrid
- - [] fametec/postfix:locaweb
+ - [ ] fametec/postfix:locaweb
  
 
 Postfix SMTP Relay
