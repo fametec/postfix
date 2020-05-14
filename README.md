@@ -1,6 +1,17 @@
 # postfix
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Ffametec%2Fpostfix.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Ffametec%2Fpostfix?ref=badge_shield)
 
+## Images
+
+ - [x] fametec/postfix:latest
+ - [x] fametec/postfix:mailgun
+ - [x] fametec/postfix:mailgun-europe
+ - [x] fametec/postfix:ses
+ - [x] fametec/postfix:gmail
+ - [x] fametec/postfix:office365
+ - [x] fametec/postfix:sendgrid
+ - [] fametec/postfix:locaweb
+ 
 
 Postfix SMTP Relay
 
