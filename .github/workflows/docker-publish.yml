@@ -11,6 +11,7 @@ on:
     branches: [ master ]
 
 env:
+  USERNAME: eduardofraga
   # Use docker.io for Docker Hub if empty
   # REGISTRY: ghcr.io
   # github.repository as <account>/<repo>
@@ -52,8 +53,10 @@ jobs:
         uses: docker/login-action@28218f9b04b4f3f62068d7b6ce6ca5b26e35336c
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ env.USERNAME }}
+      #    username: ${{ github.actor }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+      #    password: ${{ secrets.GITHUB_TOKEN }}
 
       # Extract metadata (tags, labels) for Docker
       # https://github.com/docker/metadata-action
@@ -61,7 +64,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:${GITHUB_REF##*/}
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
